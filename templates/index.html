@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <div style="width:100%;"></div>
+    <div style="width: 50%; float: left;">
+      <h1>Contact Info</h1>
+      <table>
+        <tr><td>
+          <input type="radio" id="CreateChecked" onchange="showCreate(this)" name="functionSelect" checked>Add Contact
+        </td></tr>
+        <tr><td>
+          <input type="radio" id="ReadChecked" onchange="showRead(this)" name="functionSelect">Show Single Contact
+        </td></tr>
+        <tr><td>
+          <input type="radio" id="ReadAllChecked" onchange="showReadAll(this)" name="functionSelect">Show All Contacts
+        </td></tr>
+      </table>
+      <br/>
+      <table>
+          <tr id="FNameField">
+            <td>First Name</td>
+            <td><input type="string" id="FNameInput"></td>
+          </tr>
+          <tr id="LNameField">
+            <td>Last Name</td>
+            <td><input type="string" id="LNameInput"></td>
+          </tr>
+          <tr id="EmailField">
+            <td>Email</td>
+            <td><input type="string" id="EmailInput"></td>
+          </tr>
+          <tr id="PhoneField">
+            <td>Phone Number</td>
+            <td><input type="string" id="PhoneInput"></td>
+          </tr>
+      </table>
+      <br/>
+      <button id="submitButton" onclick="submitForm()">Submit</button>
+      <br/><br/>
+      <div id="result"></div>
+    </div>
+    <div style="width: 50%; float: left;">
+      <img src="{{ url_for('static', path='pickle.png') }}" width="50%"/>
+    </div>
+  </div>
+  
+</body>
+</html>
