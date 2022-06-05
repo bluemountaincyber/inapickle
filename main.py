@@ -41,7 +41,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", description="Home page for contacts", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "title": "Hello"})
+    return templates.TemplateResponse("index.html", {"request": request, "title": "SEC542 Contacts"})
 
 @app.post("/create-contact", description="Creates a new contact. See POST request body schema for required fields.")
 async def create(item: CreateItem):
