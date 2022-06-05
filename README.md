@@ -2,6 +2,8 @@
 
 ## Requirements
 
+Local Build:
+
 - Python 3
 
 - Python virtualenv
@@ -10,7 +12,11 @@
     python3 -m pip install --user virtualenv
     ```
 
-## Install and Start FastAPI
+Docker Build:
+
+- Docker
+
+## Install and Start FastAPI Locally
 
 1. Clone this repo:
 
@@ -40,7 +46,28 @@
 
 5. App should now be reachable at http://localhost:8000.
 
-## Clues that this is exploitable:
+## Install and Start FastAPI with Docker
+
+1. Clone this repo:
+
+    ```bash
+    git clone https://github.com/bluemountaincyber/inapickle
+    cd inapickle
+    ```
+
+2. Build docker image:
+
+    ```bash
+    docker build -t inapickle .
+    ```
+
+3. Start inapickle container:
+
+    ```bash
+    docker run -it --rm -p 8000:8000 --name inapickle inapickle
+    ```
+
+## Clues that this is exploitable
 
 1. The Pickle icon...
 
